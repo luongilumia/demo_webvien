@@ -17,13 +17,13 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <img
             src="/images/logo-removebg-preview.png"
-            width="50"
-            height="50"
+            width="60"
+            height="60"
             alt="Logo"
           />
 
           {/* Logo */}
-          <div className="text-xl font-bold text-blue-600">
+          <div className="text-4xl  text-blue-600">
             <h1>Viện Phát triển Khoa học Công nghệ và Giáo dục</h1>
           </div>
 

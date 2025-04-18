@@ -29,7 +29,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[880px] overflow-hidden">
+    <div className="relative w-full h-[700px] overflow-hidden">
       {/* Layer các ảnh */}
       {images.map((img, index) => (
         <img
