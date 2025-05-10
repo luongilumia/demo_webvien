@@ -1,46 +1,35 @@
-import React from "react";
-import Header from "./components/Header";
-import Nav from "./components/Nav";
-import Banner from "./components/Banner";
+// App.js
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Services from "./pages/Services";
+import Contact from "./pages/Contact";
+import NewsPage from "./pages/NewsPage";
+import NewsDetail from "./pages/NewsDetail";
+import ServiceDetail from "./pages/ServicesDetail";
 import CardDefault from "./components/CardDefault";
-import NewsCard from "./components/NewsCard";
-
+import BlogDetail from "./pages/BlogsDetail";
+import Blog from "./components/Blog";
+import Notification from "./components/Notification";
+import NotificationDetail from "./pages/NotificationDetail";
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Nav />
-      <Banner />
-      <div className="flex justify-center items-center py-8">
-        <a className="text-5xl font-semibold -mt-10 ">
-          Chào mừng quý khách đã đến thăm
-        </a>
-        <a className="text-6xl font-semibold text-blue-700 -mt-10">
-          &nbsp;ISED
-        </a>
-      </div>
-      <div className="flex justify-center items-center py-8 text-4xl -mt-15">
-        <p>
-          <h1>Viện Phát triển Khoa học Công nghệ và Giáo dục</h1>
-        </p>
-      </div>
-      <div className="flex justify-center items-center py-8">
-        <h1 className=" font-semibold text-blue-700 text-3xl">Dịch vụ</h1>
-      </div>
-
-      <CardDefault />
-      <div className="font-semibold text-blue-700 text-3xl">
-        <h1 className="flex justify-center items-center font-semibold text-blue-700 mt-4 mb-4">
-          Tin tức
-        </h1>
-      </div>
-      <NewsCard />
-      <div className="font-semibold text-blue-700 text-3xl">
-        <h1 className="flex justify-center items-center font-semibold text-blue-700 mt-4 mb-4">
-          Thông báo
-        </h1>
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/news" element={<NewsPage />} />
+        <Route path="/news/:id" element={<NewsDetail />} />
+        <Route path="/services-list" element={<CardDefault />} />
+        <Route path="/service/:id" element={<ServiceDetail />} />
+        <Route path="/blogs" element={<Blog />} />
+        <Route path="/blog/:id" element={<BlogDetail />} />
+        <Route path="/notifications" element={<Notification />} />
+        <Route path="/notification/:id" element={<NotificationDetail />} />{" "}
+      </Routes>
+    </Router>
   );
 }
 
