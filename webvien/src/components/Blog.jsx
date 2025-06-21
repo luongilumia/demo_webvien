@@ -9,21 +9,21 @@ const Blog = () => {
         "Lớp bồi dưỡng kiến thức UNESCO về Phát triển Khoa học, Công nghệ và Giáo dục",
       description:
         "Ngày 26/05/2024, Viện Phát triển Khoa học Công nghệ và Giáo dục phối hợp cùng Trung tâm UNESCO tổ chức lớp bồi dưỡng kiến thức.",
-      imageUrl: "/your-image-path.png",
+      imageUrl: "/images/news1.jpg",
     },
     {
       id: 2,
       title: "Sự kiện UNESCO về Phát triển Khoa học và Công nghệ",
       description:
         "Sự kiện thúc đẩy phát triển khoa học và công nghệ với sự tham gia của các chuyên gia quốc tế.",
-      imageUrl: "/your-image-path-2.png",
+      imageUrl: "/images/news2.jpg",
     },
     {
       id: 3,
       title: "Sự kiện UNESCO về Phát triển Khoa học và Công nghệ",
       description:
         "Sự kiện thúc đẩy phát triển khoa học và công nghệ với sự tham gia của các chuyên gia quốc tế.",
-      imageUrl: "/your-image-path-2.png",
+      imageUrl: "/images/news6.jpg",
     },
     // Bạn có thể thêm bài viết mới tại đây
   ];

@@ -8,37 +8,37 @@ const newsList = [
     id: 1,
     title: "Lớp bồi dưỡng kiến thức UNESCO",
     content: "Đây là nội dung chi tiết của tin tức số 1...",
-    image: "/img1.png",
+    image: "/images/news1.jpg",
   },
   {
     id: 2,
     title: "Tin tức 2",
     content: "Nội dung chi tiết của tin tức số 2...",
-    image: "/img2.png",
+    image: "/images/news2.jpg",
   },
   {
     id: 3,
     title: "Tin tức 2",
     content: "Nội dung chi tiết của tin tức số 2...",
-    image: "/img2.png",
+    image: "/images/news3.jpg",
   },
   {
     id: 4,
     title: "Tin tức 2",
     content: "Nội dung chi tiết của tin tức số 2...",
-    image: "/img2.png",
+    image: "/images/news4.jpg",
   },
   {
     id: 5,
     title: "Tin tức 2",
     content: "Nội dung chi tiết của tin tức số 2...",
-    image: "/img2.png",
+    image: "/images/news5.jpg",
   },
   {
     id: 6,
     title: "Tin tức 2",
     content: "Nội dung chi tiết của tin tức số 2...",
-    image: "/img2.png",
+    image: "/images/news6.jpg",
   },
 ];
 

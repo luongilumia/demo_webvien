@@ -25,7 +25,7 @@ Khi tham gia lớp học này, học sinh sẽ được tìm hiểu về ngôn n
 
 👉 Quý phụ huynh vui lòng đăng ký sớm tại đường link: https://example.com/dang-ky
     `,
-    image: "/your-image-path-3.png",
+    image: "/images/news4.jpg",
   },
   {
     id: 2,
@@ -47,7 +47,7 @@ Khi tham gia lớp học này, học sinh sẽ được tìm hiểu về ngôn n
 
 👉 Quý phụ huynh vui lòng đăng ký sớm tại đường link: https://example.com/dang-ky
     `,
-    image: "/your-image-path-3.png",
+    image: "/images/news5.jpg",
   },
   {
     id: 3,
@@ -69,7 +69,7 @@ Khi tham gia lớp học này, học sinh sẽ được tìm hiểu về ngôn n
 
 👉 Quý phụ huynh vui lòng đăng ký sớm tại đường link: https://example.com/dang-ky
     `,
-    image: "/your-image-path-3.png",
+    image: "/images/news3.jpg",
   },
 ];
 

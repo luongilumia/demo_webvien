@@ -44,7 +44,7 @@ const About = () => {
             </p>
           </div>
           <img
-            src="/images/vision.jpg"
+            src="/images/news1.jpg"
             alt="Sứ mệnh"
             className="rounded-lg shadow-md w-full h-auto"
           />

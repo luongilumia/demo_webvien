@@ -1,20 +1,48 @@
-import React from "react";
-
-import {
-  Bars3Icon,
-  XMarkIcon,
-  MagnifyingGlassIcon,
-} from "@heroicons/react/24/outline";
+import React, { useState } from "react";
+import SearchBar from "./SearchBar";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useAuth } from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const [openNav, setOpenNav] = React.useState(false);
+  const [openNav, setOpenNav] = useState(false);
+  const { username, token, role, isAdmin } = useAuth();
+  const navigate = useNavigate();
 
-  const navItems = ["Sales", "New In", "Blocks", "Docs"];
+  // Danh sách menu động
+  const navItems = [
+    { label: "Trang chủ", link: "/" },
+    { label: "Giới thiệu", link: "/about" },
+    { label: "Dịch vụ", link: "/services" },
+    { label: "Tin tức", link: "/news" },
+    { label: "Thông báo", link: "/notifications" },
+  ];
+
+  if (token) {
+    if (isAdmin) {
+      navItems.push({ label: "Quản lý", link: "/admin" });
+    } else {
+      navItems.push({ label: "Khóa học", link: "/services" });
+    }
+  }
+
+  const authLinks = token
+    ? [] // Nếu đã đăng nhập, không hiện
+    : [
+        { label: "Đăng nhập", link: "/login" },
+        { label: "Đăng ký", link: "/register" },
+      ];
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
 
   return (
     <header className="bg-white shadow-md">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
+          {/* Logo */}
           <img
             src="/images/logo-removebg-preview.png"
             width="60"
@@ -22,29 +50,46 @@ const Header = () => {
             alt="Logo"
           />
 
-          {/* Logo */}
-          <div className="text-4xl  text-blue-600">
-            <h1>Viện Phát triển Khoa học Công nghệ và Giáo dục</h1>
+          <div className="text-2xl text-blue-600 font-bold text-center">
+            Viện Phát triển Khoa học Công nghệ và Giáo dục
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Menu desktop */}
+          <div className="hidden md:flex items-center gap-4">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.link}
+                className="text-gray-600 hover:text-blue-500 transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
 
-          {/* Search Bar - Desktop */}
-          <div className="hidden md:flex items-center space-x-2">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search"
-                className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
-              />
-              <MagnifyingGlassIcon className="h-5 w-5 text-gray-400 absolute left-3 top-2.5" />
-            </div>
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-              Search
-            </button>
+            {authLinks.map((item) => (
+              <a
+                key={item.label}
+                href={item.link}
+                className="text-gray-600 hover:text-blue-500 transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+
+            {token && (
+              <>
+                <span className="text-gray-700">👋 Xin chào, {username}</span>
+                <button
+                  onClick={handleLogout}
+                  className="bg-red-500 text-white px-3 py-1 rounded"
+                >
+                  Đăng xuất
+                </button>
+              </>
+            )}
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Nút menu mobile */}
           <button
             className="md:hidden text-gray-600"
             onClick={() => setOpenNav(!openNav)}
@@ -60,28 +105,31 @@ const Header = () => {
         {/* Mobile Navigation */}
         {openNav && (
           <div className="md:hidden mt-4 pb-4 space-y-3">
-            {navItems.map((item) => (
+            {[...navItems, ...authLinks].map((item) => (
               <a
-                key={item}
-                href="#"
+                key={item.label}
+                href={item.link}
                 className="block py-2 text-gray-600 hover:text-blue-500 transition-colors"
               >
-                {item}
+                {item.label}
               </a>
             ))}
+
             <div className="pt-2">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300"
-                />
-                <MagnifyingGlassIcon className="h-5 w-5 text-gray-400 absolute left-3 top-2.5" />
-              </div>
-              <button className="w-full mt-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                Search
-              </button>
+              <SearchBar />
             </div>
+
+            {token && (
+              <div className="pt-2">
+                <p className="text-sm text-gray-600">👋 Xin chào, {username}</p>
+                <button
+                  onClick={handleLogout}
+                  className="mt-2 bg-red-500 text-white px-3 py-1 rounded"
+                >
+                  Đăng xuất
+                </button>
+              </div>
+            )}
           </div>
         )}
       </div>

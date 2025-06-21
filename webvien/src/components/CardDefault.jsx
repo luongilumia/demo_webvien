@@ -33,8 +33,8 @@ const CardDefault = () => {
     <div className="grid grid-cols-3 gap-x-8 gap-y-4 justify-items-center">
       {services.map((service) => (
         <div key={service.id}>
-          <Card className="mt-5 max-w-sm md:max-w-lg h-80">
-            <CardBody>
+          <Card className="mt-5 max-w-sm md:max-w-lg h-80 flex flex-col">
+            <CardBody className="flex flex-col flex-grow">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -50,13 +50,17 @@ const CardDefault = () => {
               <Typography variant="h5" color="blue-gray" className="mb-2">
                 <b>{service.title}</b>
               </Typography>
-              <Typography>{service.description}</Typography>
-              <CardFooter className="pt-0">
+              <Typography className="text-sm text-gray-700 mb-4 flex-grow">
+                {service.description}
+              </Typography>
+
+              {/* Đọc thêm xuống đáy */}
+              <CardFooter className="pt-0 mt-auto">
                 <Link to={service.link} className="inline-block">
                   <Button
                     size="sm"
                     variant="text"
-                    className="flex items-center gap-2 text-blue-500"
+                    className="flex items-center gap-2 text-blue-600 text-base"
                   >
                     Đọc thêm
                     <svg
@@ -65,7 +69,7 @@ const CardDefault = () => {
                       viewBox="0 0 24 24"
                       strokeWidth={2}
                       stroke="currentColor"
-                      className="h-4 w-4 text-blue-500"
+                      className="h-4 w-4 text-blue-600"
                     >
                       <path
                         strokeLinecap="round"
